@@ -11,6 +11,7 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
     color: AppColors.textPrimaryColor,
     letterSpacing: -0.5,
+    height: .8,
   );
 
   static const TextStyle h2 = TextStyle(
@@ -48,7 +49,7 @@ class AppTextStyles {
   // ─── Buttons ─────────────────────────────────────────────
   static const TextStyle buttonLarge = TextStyle(
     fontSize: 16,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w500,
     color: AppColors.backgroundColor,
     letterSpacing: 0.5,
   );
