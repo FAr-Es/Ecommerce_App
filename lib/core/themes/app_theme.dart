@@ -24,13 +24,13 @@ class AppColors {
 
   // UI Elements
   static const Color dividerColor = Color(0xFFE6E6E6);
-  static const Color borderColor = Color(0xFFE0E0E0);
+  static const Color borderColor = Color(0xFFE6E6E6);
   static const Color cardColor = Color(0xFFFFFFFF);
 
   // Text
   static const Color textPrimaryColor = Color(0xFF1A1A1A);
   static const Color textSecondaryColor = Color(0xFF808080);
-  static const Color textHintColor = Color(0xFFBDBDBD);
+  static const Color textHintColor = Color(0xFF999999);
 
   // Status
   static const Color successColor = Color(0xFF0C9409);
