@@ -24,7 +24,7 @@ class AppColors {
 
   // UI Elements
   static const Color dividerColor = Color(0xFFE6E6E6);
-  static const Color borderColor = Color(0xFFE6E6E6);
+  static const Color borderColor = Color(0xFFCCCCCC);
   static const Color cardColor = Color(0xFFFFFFFF);
 
   // Text

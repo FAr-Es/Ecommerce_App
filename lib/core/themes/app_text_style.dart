@@ -28,7 +28,12 @@ class AppTextStyles {
   );
 
   // ─── Body ────────────────────────────────────────────────
-  static const TextStyle bodyRegular = TextStyle(
+  static const TextStyle bodyRegularBlack = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    color: AppColors.textPrimaryColor,
+  );
+  static const TextStyle bodyRegularGrey = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,
     color: AppColors.textPrimaryColor,
@@ -68,19 +73,18 @@ class AppTextStyles {
     letterSpacing: 0.5,
   );
 
-  // ─── Labels & Captions ───────────────────────────────────
-  static const TextStyle label = TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeight.w500,
-    color: AppColors.textSecondaryColor,
-    letterSpacing: 0.4,
+  // ─── Terms ───────────────────────────────────
+  static const TextStyle textTerms = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: AppColors.textPrimaryColor,
   );
 
-  static const TextStyle caption = TextStyle(
-    fontSize: 11,
-    fontWeight: FontWeight.normal,
-    color: AppColors.textHintColor,
-    height: 1.3,
+  static const TextStyle linkTerms = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+    decoration: TextDecoration.underline,
+    color: AppColors.textPrimaryColor,
   );
 
   // ─── E-commerce Specific ─────────────────────────────────
