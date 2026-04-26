@@ -19,6 +19,10 @@ class CustomTextField extends StatelessWidget {
     this.fillColor,
     this.borderColor,
     this.isFilled = true,
+    this.maxLength,
+    this.focusNode,
+    this.textAlign,
+    this.textStyle
   });
 
   final void Function(String?)? onSaved;
@@ -35,18 +39,26 @@ class CustomTextField extends StatelessWidget {
   final Color? fillColor;
   final Color? borderColor;
   final bool? isFilled;
+  final int? maxLength;
+  final FocusNode? focusNode;
+  final TextAlign? textAlign;
+  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      focusNode: focusNode,
+      textAlign: textAlign ?? TextAlign.start,
       controller: controller,
       keyboardType: keyboardType,
       obscureText: obscureText,
       onSaved: onSaved,
       onChanged: onChange,
       validator: validator,
-
+      maxLength: maxLength,
+      style: textStyle ?? AppTextStyles.bodyRegularBlack,
       decoration: InputDecoration(
+        counterText: "",
         contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         labelText: labelText,
         filled: isFilled,

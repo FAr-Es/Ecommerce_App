@@ -36,7 +36,7 @@ class AppTextStyles {
   static const TextStyle bodyRegularGrey = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,
-    color: AppColors.textPrimaryColor,
+    color: AppColors.textSecondaryColor,
   );
 
   static const TextStyle bodyMedium = TextStyle(

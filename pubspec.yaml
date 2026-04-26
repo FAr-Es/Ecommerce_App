@@ -63,6 +63,7 @@ flutter:
     - assets/icons/main_icon.png
     - assets/icons/onboarding_background1.png
     - assets/icons/onboarding_background2.png
+    - assets/icons/check_icon.png
     - assets/logos/facebook.png
     - assets/logos/google.png
 

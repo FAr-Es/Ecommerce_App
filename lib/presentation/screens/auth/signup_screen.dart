@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/core/themes/app_text_style.dart';
 import 'package:ecommerce_app/core/themes/app_theme.dart';
+import 'package:ecommerce_app/presentation/screens/auth/login_screen.dart';
 import 'package:ecommerce_app/presentation/widgets/custom_button.dart';
 import 'package:ecommerce_app/presentation/widgets/custom_textfield.dart';
 import 'package:ecommerce_app/presentation/widgets/terms_text.dart';
@@ -17,6 +18,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.backgroundColor,
       body: Padding(
         padding: const EdgeInsets.only(left: 24.0, right: 24, top: 59),
@@ -51,7 +53,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     obscure = !obscure;
                   });
                 },
-                child: Icon(Icons.visibility_off),
+                child: obscure ? Icon(Icons.visibility_off) : Icon(Icons.visibility),
               ),
             ),
 
@@ -97,12 +99,23 @@ class _SignupScreenState extends State<SignupScreen> {
                   style: AppTextStyles.textTerms,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.only(left: 3),
+                    minimumSize: Size.zero, 
+                    tapTargetSize: MaterialTapTargetSize
+                        .shrinkWrap, 
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                  },
                   child: Text("Log In", style: AppTextStyles.linkTerms),
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 37),
           ],
         ),
       ),
