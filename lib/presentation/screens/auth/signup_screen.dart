@@ -74,7 +74,7 @@ class _SignupScreenState extends State<SignupScreen> {
             SizedBox(height: 24),
             CustomButton(
               text: "Sign Up with Google",
-              widget: Image.asset("assets/logos/google.png"),
+              widget: Image.asset("assets/icons/google.png"),
               buttonColor: AppColors.googleButtonColor,
               textButtonColor: AppColors.primaryColor,
               border: Border.all(width: 1, color: AppColors.borderColor),
@@ -85,7 +85,7 @@ class _SignupScreenState extends State<SignupScreen> {
             CustomButton(
               buttonColor: AppColors.facebookButtonColor,
               text: "Sign Up with FaceBook",
-              widget: Image.asset("assets/logos/facebook.png"),
+              widget: Image.asset("assets/icons/facebook.png"),
               height: 56,
               onTap: () {},
             ),

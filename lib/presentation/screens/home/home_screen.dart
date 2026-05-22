@@ -9,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  final bool isSelected = false;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -114,10 +113,7 @@ class HomeScreen extends StatelessWidget {
 }
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({
-    super.key,
-    required this.product,
-  });
+  const ProductCard({super.key, required this.product});
 
   final ProductModel product;
 
@@ -132,23 +128,51 @@ class ProductCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Image.network(
-              product.imageUrl,
-              height: 174,
-            ),
+          Stack(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.network(
+                  product.imageUrl,
+                  height: 174,
+                  width: double.infinity, 
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Positioned(
+                top: 8,
+                right: 8,
+                child: GestureDetector(
+                  onTap: () {
+                    context.read<HomeCubit>().toggleFavorite(product.id);
+                  },
+                  child: Image.asset(
+                    product.isFavorite
+                        ? "assets/icons/heart_filled.png"
+                        : "assets/icons/heart_outline.png",
+                    width: 40,
+                    height: 40,
+                  ),
+                ),
+              ),
+            ],
           ),
-          SizedBox(height: 8,),
-          Text(product.title, style: AppTextStyles.bodyRegularBoldBlack,),
+          SizedBox(height: 8),
+          Text(product.title, style: AppTextStyles.bodyRegularBoldBlack),
           Row(
             children: [
-              Text("\$ ${product.discountedPrice.toInt()}", style: AppTextStyles.bodySmallBold,),
-              SizedBox(width: 5,),
-              if(product.discountPercent != null)
-              Text("- ${product.discountPercent!.toInt()}%", style: AppTextStyles.errorText,),
+              Text(
+                "\$ ${product.discountedPrice.toInt()}",
+                style: AppTextStyles.bodySmallBold,
+              ),
+              SizedBox(width: 5),
+              if (product.discountPercent != null)
+                Text(
+                  "- ${product.discountPercent!.toInt()}%",
+                  style: AppTextStyles.errorText,
+                ),
             ],
-          )
+          ),
         ],
       ),
     );
