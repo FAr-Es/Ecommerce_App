@@ -38,6 +38,11 @@ class AppTextStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.textPrimaryColor,
   );
+  static const TextStyle bodyRegularBoldBlack = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+    color: AppColors.textPrimaryColor,
+  );
   static const TextStyle bodyRegularGrey = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,
@@ -53,6 +58,11 @@ class AppTextStyles {
   static const TextStyle bodySmall = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.normal,
+    color: AppColors.textSecondaryColor,
+  );
+  static const TextStyle bodySmallBold = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w700,
     color: AppColors.textSecondaryColor,
   );
 
