@@ -23,8 +23,18 @@ class AppTextStyles {
 
   static const TextStyle h3 = TextStyle(
     fontSize: 24,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w800,
     color: AppColors.textPrimaryColor,
+  );
+  static const TextStyle h4 = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w800,
+    color: AppColors.textPrimaryColor,
+  );
+  static const TextStyle h4Second = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w800,
+    color: AppColors.backgroundColor,
   );
 
   // ─── Body ────────────────────────────────────────────────
@@ -53,6 +63,11 @@ class AppTextStyles {
     fontSize: 14,
     fontWeight: FontWeight.normal,
     color: AppColors.textPrimaryColor,
+  );
+  static const TextStyle bodyMediumGrey = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: AppColors.textSecondaryColor,
   );
 
   static const TextStyle bodySmall = TextStyle(
@@ -104,10 +119,10 @@ class AppTextStyles {
 
   // ─── E-commerce Specific ─────────────────────────────────
   static const TextStyle price = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.bold,
+    fontSize: 24,
+    fontWeight: FontWeight.w800,
     color: AppColors.textPrimaryColor,
-    letterSpacing: -0.3,
+    letterSpacing: -1,
   );
 
   static const TextStyle priceSmall = TextStyle(

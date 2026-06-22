@@ -2,6 +2,7 @@ import 'package:ecommerce_app/core/themes/app_text_style.dart';
 import 'package:ecommerce_app/core/themes/app_theme.dart';
 import 'package:ecommerce_app/data/models/product_model.dart';
 import 'package:ecommerce_app/presentation/cubit/home_cubit.dart';
+import 'package:ecommerce_app/presentation/screens/home/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,61 +13,69 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 244,
-      decoration: BoxDecoration(
-        color: AppColors.backgroundColor,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.network(
-                  product.imageUrl,
-                  height: 174,
-                  width: double.infinity, 
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Positioned(
-                top: 8,
-                right: 8,
-                child: GestureDetector(
-                  onTap: () {
-                    context.read<HomeCubit>().toggleFavorite(product.id);
-                  },
-                  child: Image.asset(
-                    product.isFavorite
-                        ? "assets/icons/heart_filled.png"
-                        : "assets/icons/heart_outline.png",
-                    width: 40,
-                    height: 40,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ProductDetailsScreen(product: product)),
+        );
+      },
+      child: Container(
+        height: 244,
+        decoration: BoxDecoration(
+          color: AppColors.backgroundColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(
+                    product.imageUrl,
+                    height: 174,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
                   ),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(height: 8),
-          Text(product.title, style: AppTextStyles.bodyRegularBoldBlack),
-          Row(
-            children: [
-              Text(
-                "\$ ${product.discountedPrice.toInt()}",
-                style: AppTextStyles.bodySmallBold,
-              ),
-              SizedBox(width: 5),
-              if (product.discountPercent != null)
-                Text(
-                  "- ${product.discountPercent!.toInt()}%",
-                  style: AppTextStyles.errorText,
+                Positioned(
+                  top: 8,
+                  right: 8,
+                  child: GestureDetector(
+                    onTap: () {
+                      context.read<HomeCubit>().toggleFavorite(product.id);
+                    },
+                    child: Image.asset(
+                      product.isFavorite
+                          ? "assets/icons/heart_filled.png"
+                          : "assets/icons/heart_outline.png",
+                      width: 40,
+                      height: 40,
+                    ),
+                  ),
                 ),
-            ],
-          ),
-        ],
+              ],
+            ),
+            SizedBox(height: 8),
+            Text(product.title, style: AppTextStyles.bodyRegularBoldBlack),
+            Row(
+              children: [
+                Text(
+                  "\$ ${product.discountedPrice.toInt()}",
+                  style: AppTextStyles.bodySmallBold,
+                ),
+                SizedBox(width: 5),
+                if (product.discountPercent != null)
+                  Text(
+                    "- ${product.discountPercent!.toInt()}%",
+                    style: AppTextStyles.errorText,
+                  ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -7,6 +7,9 @@ final List<ProductModel> fakeProducts = [
     imageUrl: 'https://colorfulstandard.com/cdn/shop/files/CS2056_Male_OversizedOrganicT-Shirt-DeepBlack_2_2adc696d-0930-4a7f-86b1-61ad0c6dc3e9.jpg?v=1745834597&width=800',
     originalPrice: 1190,
     category: 'Tshirts',
+    description: 'Comfortable and stylish regular fit t-shirt with slogan print',
+    reviewCount: 245,
+    rating: 4.5,
   ),
   ProductModel(
     id: '2',
@@ -15,6 +18,9 @@ final List<ProductModel> fakeProducts = [
     originalPrice: 2291,
     discountPercent: 52,
     category: 'Tshirts',
+    description: 'Classic polo shirt with premium quality fabric',
+    reviewCount: 189,
+    rating: 4.7,
   ),
   ProductModel(
     id: '3',
@@ -22,6 +28,9 @@ final List<ProductModel> fakeProducts = [
     imageUrl: 'https://colorfulstandard.com/cdn/shop/files/CS2056_Male_OversizedOrganicT-Shirt-DeepBlack_2_2adc696d-0930-4a7f-86b1-61ad0c6dc3e9.jpg?v=1745834597&width=800',
     originalPrice: 1690,
     category: 'Tshirts',
+    description: 'Sleek black t-shirt perfect for any occasion',
+    reviewCount: 156,
+    rating: 4.6,
   ),
   ProductModel(
     id: '4',
@@ -30,6 +39,9 @@ final List<ProductModel> fakeProducts = [
     originalPrice: 2500,
     discountPercent: 20,
     category: 'Jeans',
+    description: 'Modern slim fit jeans with premium denim quality',
+    reviewCount: 312,
+    rating: 4.8,
   ),
   ProductModel(
     id: '5',
@@ -37,6 +49,9 @@ final List<ProductModel> fakeProducts = [
     imageUrl: 'https://www.tenuejeans.com/cdn/shop/files/JACKSONRENO_0051.jpg?v=1746526707&width=2048',
     originalPrice: 1800,
     category: 'Jeans',
+    description: 'Timeless straight cut jeans for everyday wear',
+    reviewCount: 278,
+    rating: 4.4,
   ),
   ProductModel(
     id: '6',
@@ -45,6 +60,9 @@ final List<ProductModel> fakeProducts = [
     originalPrice: 3200,
     discountPercent: 15,
     category: 'Shoes',
+    description: 'Lightweight running shoes with superior comfort and support',
+    reviewCount: 425,
+    rating: 4.9,
   ),
   ProductModel(
     id: '7',
@@ -52,5 +70,8 @@ final List<ProductModel> fakeProducts = [
     imageUrl: 'https://i5.walmartimages.com/seo/Damyuan-Running-Shoes-Men-Fashion-Sneakers-Slip-on-Casual-Walking-Shoes-Sport-Athletic-Shoes-Lightweight-Breathable-Comfortable_4114141f-7d26-4dd7-933d-babc24080395.516ad145e1a1d8d82a801ac48231950d.jpeg',
     originalPrice: 2800,
     category: 'Shoes',
+    description: 'Versatile casual sneakers perfect for any style',
+    reviewCount: 198,
+    rating: 4.3,
   ),
 ];

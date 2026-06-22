@@ -6,6 +6,9 @@ class ProductModel {
   final double? discountPercent;
   final bool isFavorite;
   final String category;
+  final String description;
+  final int reviewCount;
+  final double rating;
   double get discountedPrice => discountPercent != null
       ? originalPrice * (1 - discountPercent! / 100)
       : originalPrice;
@@ -17,6 +20,9 @@ class ProductModel {
     this.discountPercent,
     this.isFavorite = false,
     required this.category,
+    required this.description,
+    required this.reviewCount,
+    required this.rating,
   });
 
   ProductModel copyWith({
@@ -27,6 +33,9 @@ class ProductModel {
     double? discountPercent,
     bool? isFavorite,
     String? category,
+    String? description,
+    int? reviewCount,
+    double? rating,
   }) {
     return ProductModel(
       id: id ?? this.id,
@@ -36,6 +45,9 @@ class ProductModel {
       discountPercent: discountPercent ?? this.discountPercent,
       isFavorite: isFavorite ?? this.isFavorite,
       category: category ?? this.category,
+      description: description ?? this.description,
+      reviewCount: reviewCount ?? this.reviewCount,
+      rating: rating ?? this.rating,
     );
   }
 }
