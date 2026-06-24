@@ -15,9 +15,15 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        final cubit = context.read<HomeCubit>();
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ProductDetailsScreen(product: product)),
+          MaterialPageRoute(
+            builder: (context) => ProductDetailsScreen(
+              product: product,
+              cubit: cubit,
+            ),
+          ),
         );
       },
       child: Container(
