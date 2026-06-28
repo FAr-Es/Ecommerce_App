@@ -7,10 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key, required this.product});
+  const ProductCard({super.key, required this.product, required this.cardHeight, required this.imageHeight});
 
   final ProductModel product;
-
+  final double cardHeight;
+  final double imageHeight;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -27,7 +28,7 @@ class ProductCard extends StatelessWidget {
         );
       },
       child: Container(
-        height: 244,
+        height: cardHeight,
         decoration: BoxDecoration(
           color: AppColors.backgroundColor,
           borderRadius: BorderRadius.circular(10),
@@ -41,7 +42,7 @@ class ProductCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   child: Image.network(
                     product.imageUrl,
-                    height: 174,
+                    height: imageHeight,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),

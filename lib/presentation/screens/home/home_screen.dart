@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/core/themes/app_theme.dart';
 import 'package:ecommerce_app/presentation/cubit/home_cubit.dart';
+import 'package:ecommerce_app/presentation/screens/favourite_products_screen.dart';
 import 'package:ecommerce_app/presentation/screens/home/products_screen.dart';
 import 'package:ecommerce_app/presentation/widgets/bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             ProductsScreen(),
             Center(child: Text("Search")),
-            Center(child: Text("Saved")),
+            FavouriteProductsScreen(),
             Center(child: Text("Cart")),
             Center(child: Text("Account")),
           ],
