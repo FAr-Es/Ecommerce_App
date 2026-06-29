@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/core/themes/app_text_style.dart';
-import 'package:ecommerce_app/presentation/cubit/home_cubit.dart';
+import 'package:ecommerce_app/presentation/cubit/home/home_cubit.dart';
 import 'package:ecommerce_app/presentation/widgets/category_cards.dart';
 import 'package:ecommerce_app/presentation/widgets/custom_textfield.dart';
 import 'package:ecommerce_app/presentation/widgets/product_card.dart';

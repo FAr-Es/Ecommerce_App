@@ -1,13 +1,12 @@
 import 'package:ecommerce_app/core/themes/app_text_style.dart';
 import 'package:ecommerce_app/core/themes/app_theme.dart';
-import 'package:ecommerce_app/presentation/cubit/home/home_cubit.dart';
-import 'package:ecommerce_app/presentation/widgets/product_card.dart';
+import 'package:ecommerce_app/presentation/cubit/cart/cart_cubit.dart';
+import 'package:ecommerce_app/presentation/widgets/cart_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class FavouriteProductsScreen extends StatelessWidget {
-  const FavouriteProductsScreen({super.key});
-
+class CartScreen extends StatelessWidget {
+  const CartScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,36 +19,34 @@ class FavouriteProductsScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Saved Items", style: AppTextStyles.h2),
+                  Text("My Cart", style: AppTextStyles.h2),
                   GestureDetector(
                     onTap: () {},
                     child: Image.asset("assets/icons/bell.png"),
                   ),
                 ],
               ),
-              BlocBuilder<HomeCubit, HomeState>(
+              SizedBox(height: 20),
+              BlocBuilder<CartCubit, CartState>(
                 builder: (context, state) {
-                  final favourites = state.products
-                      .where((p) => p.isFavorite)
-                      .toList();
-                  if (favourites.isEmpty) {
-                    return SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.75,
+                  if(state.cartItems.isEmpty){
+                    return  SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.7,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset(
-                            "assets/icons/empty_favourites.png",
+                            "assets/icons/empty_cart.png",
                           ),
                           SizedBox(height: 12),
                           Text(
-                            "No saved items!",
+                            "Your Cart Is Empty!",
                             style: AppTextStyles.bodyRegularBoldBlack,
                           ),
                           SizedBox(height: 12),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 69.0),
-                            child: Text("You don’t have any saved items. Go to home and add some.", 
+                            child: Text("When you add products, they’ll appear here.", 
                               style: AppTextStyles.bodyRegularGrey,
                               textAlign: TextAlign.center,
                             ),
@@ -58,26 +55,18 @@ class FavouriteProductsScreen extends StatelessWidget {
                       ),
                     );
                   }
-                  return GridView.builder(
-                    physics: NeverScrollableScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 16,
-                      crossAxisSpacing: 16,
-                      childAspectRatio: 0.97,
-                    ),
+                  return ListView.builder(
                     shrinkWrap: true,
-                    itemCount: favourites.length,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: state.cartItems.length,
                     itemBuilder: (context, index) {
-                      return ProductCard(
-                        product: favourites[index],
-                        cardHeight: 172,
-                        imageHeight: 122,
-                      );
+                      final cartItem = state.cartItems[index];
+                      return CartCard(cartItem: cartItem);
                     },
                   );
                 },
-              ),
+              )
+              
             ],
           ),
         ),

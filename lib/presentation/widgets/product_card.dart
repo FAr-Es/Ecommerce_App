@@ -1,7 +1,8 @@
 import 'package:ecommerce_app/core/themes/app_text_style.dart';
 import 'package:ecommerce_app/core/themes/app_theme.dart';
 import 'package:ecommerce_app/data/models/product_model.dart';
-import 'package:ecommerce_app/presentation/cubit/home_cubit.dart';
+import 'package:ecommerce_app/presentation/cubit/cart/cart_cubit.dart';
+import 'package:ecommerce_app/presentation/cubit/home/home_cubit.dart';
 import 'package:ecommerce_app/presentation/screens/home/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,12 +18,15 @@ class ProductCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         final cubit = context.read<HomeCubit>();
+        final CartCubit cartCubit = context.read<CartCubit>();
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => ProductDetailsScreen(
               product: product,
               cubit: cubit,
+              cartCubit: cartCubit,
+
             ),
           ),
         );

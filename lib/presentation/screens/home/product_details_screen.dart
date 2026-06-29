@@ -1,7 +1,9 @@
 import 'package:ecommerce_app/core/themes/app_text_style.dart';
 import 'package:ecommerce_app/core/themes/app_theme.dart';
+import 'package:ecommerce_app/data/models/cart_item.dart';
 import 'package:ecommerce_app/data/models/product_model.dart';
-import 'package:ecommerce_app/presentation/cubit/home_cubit.dart';
+import 'package:ecommerce_app/presentation/cubit/cart/cart_cubit.dart';
+import 'package:ecommerce_app/presentation/cubit/home/home_cubit.dart';
 import 'package:ecommerce_app/presentation/widgets/custom_button.dart';
 import 'package:ecommerce_app/presentation/widgets/size_card.dart';
 import 'package:flutter/material.dart';
@@ -12,11 +14,13 @@ class ProductDetailsScreen extends StatefulWidget {
     super.key,
     required this.product,
     required this.cubit,
+    required this.cartCubit,
   });
   @override
   State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
   final ProductModel product;
   final HomeCubit cubit;
+  final CartCubit cartCubit;
 }
 
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
@@ -188,7 +192,24 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         widget: Image.asset("assets/icons/bag.png"),
                         text: "Add to cart",
                         height: 54,
-                        onTap: () {},
+                        onTap: () {
+                          if (selectedSize == null) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("Please select a size")),
+                            );
+                            return;
+                          }
+                          widget.cartCubit.addToCart(
+                            CartItem(
+                              product: product,
+                              size: selectedSize!,
+                              quantity: 1,
+                            ),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("Product added to cart")),
+                          );
+                        },
                       ),
                     ),
                   ],

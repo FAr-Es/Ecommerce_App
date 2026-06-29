@@ -1,5 +1,7 @@
 import 'package:ecommerce_app/core/themes/app_theme.dart';
-import 'package:ecommerce_app/presentation/cubit/home_cubit.dart';
+import 'package:ecommerce_app/presentation/cubit/cart/cart_cubit.dart';
+import 'package:ecommerce_app/presentation/cubit/home/home_cubit.dart';
+import 'package:ecommerce_app/presentation/screens/cart_screen.dart';
 import 'package:ecommerce_app/presentation/screens/favourite_products_screen.dart';
 import 'package:ecommerce_app/presentation/screens/home/products_screen.dart';
 import 'package:ecommerce_app/presentation/widgets/bottom_navigation_bar.dart';
@@ -18,8 +20,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => HomeCubit()),
+        BlocProvider(create: (context) => CartCubit()),
+      ],
       child: Scaffold(
         body: IndexedStack(
           index: selectedIndex,
@@ -27,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ProductsScreen(),
             Center(child: Text("Search")),
             FavouriteProductsScreen(),
-            Center(child: Text("Cart")),
+            CartScreen(),
             Center(child: Text("Account")),
           ],
         ),
